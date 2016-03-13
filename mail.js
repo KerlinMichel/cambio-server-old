@@ -1,3 +1,5 @@
+var SmtpConnection = require('smtp-connection');
+
 var express = require('express'),
     app = express(),
     port = 465;
