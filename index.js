@@ -37,6 +37,9 @@ app.post('/', function (req, res) {
     //var token = body.msg.unique_token;
     request(url, function (error, response, body) {
         if (!error) {
+            console.log('erro');
+            console.log(body);
+        } else {
             console.log(body);
         }
     });
