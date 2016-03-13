@@ -65,15 +65,13 @@ app.post('/', function (req, res) {
         message: 'ok got it!'
     });
 });
-
+var URi = 'https://duckduckgo.com/?q=freedom&ia=meanings';
 app.get('/', function(req, res){
     mailSender('body');
-    request(url, function (error, response, body) {
-        if (!error) {
-            console.log('erro');
-            console.log(body);
-        } else {
-            console.log(body);
+    request('http://http://fuckyeahmarkdown.com/go?u=' + URi, 
+    function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log(body); // Show the markdown for the webpage
         }
     });
   res.send('hello world');
