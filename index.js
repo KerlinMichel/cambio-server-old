@@ -87,6 +87,8 @@ var server = app.listen(port[0], function () {
     console.log(port);
     console.log('%%%%%%%%%%');
     console.log(server.address().port);
+    console.log(port[0]);
+    console.log(port[1]);
     //var port = server.address().port
 
     console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port)
