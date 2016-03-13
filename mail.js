@@ -72,6 +72,6 @@ function mailSender(msg) {
 
 }
 
-//mailSender();
+mailSender('asd');
 
 module.exports = exports = mailSender;
