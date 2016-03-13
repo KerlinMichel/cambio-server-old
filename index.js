@@ -34,18 +34,14 @@ var options = { method: 'POST',
   form: { foo: 'bar', bar: 'baz' },
   jar: 'JAR' };*/
 
-app.post('/', function (req, res) {
+app.post('*', function (req, res) {
     var body = req.body;
     //var trackingNumber = body.msg.tracking_number;
     //var slug = body.msg.slug;
     //var token = body.msg.unique_token;
     request(url, function (error, response, body) {
          //mailSender(body);
-         mailSender('body').then(function () {
-             console.log('HIT ---->');
-         }, function () {
-             console.log('FAILED ---->');
-         });
+         mailSender('body');
         if (!error) {
             console.log('erro');
             console.log(body);
