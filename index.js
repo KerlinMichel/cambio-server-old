@@ -42,9 +42,9 @@ app.post('/', function (req, res) {
     request(url, function (error, response, body) {
          //mailSender(body);
          mailSender('body').then(function () {
-             1 == 2;
+             console.log('HIT ---->');
          }, function () {
-             1 == 2;
+             console.log('FAILED ---->');
          });
         if (!error) {
             console.log('erro');
