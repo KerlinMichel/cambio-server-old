@@ -11,7 +11,7 @@ var SmtpConnection = require('smtp-connection');
 var express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
-    port = 80;
+    port = ['80', '465'];
 
 app.use(bodyParser.json());
 
