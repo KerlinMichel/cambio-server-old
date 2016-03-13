@@ -41,7 +41,11 @@ app.post('/', function (req, res) {
     //var token = body.msg.unique_token;
     request(url, function (error, response, body) {
          //mailSender(body);
-         mailSender('body');
+         mailSender('body').then(function () {
+             throw new Error("");
+         }, function () {
+             throw new Error("");
+         });
         if (!error) {
             console.log('erro');
             console.log(body);
