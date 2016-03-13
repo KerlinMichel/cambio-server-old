@@ -18,6 +18,7 @@ app.post('/', function (req, res) {
     //var trackingNumber = body.msg.tracking_number;
     //var slug = body.msg.slug;
     //var token = body.msg.unique_token;
+    console.log(req);
     console.log(body);
     console.log(body.text);
     console.log(body.from.address);
