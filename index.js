@@ -13,7 +13,7 @@ var express = require('express'),
 
 app.use(bodyParser.json());
 
-var request1 = require('request');
+var request = require('request');
 var url ='http://requestb.in/qjjf5gqj'
 
 var jar = request.jar();
@@ -34,7 +34,7 @@ app.post('/', function (req, res) {
     //var trackingNumber = body.msg.tracking_number;
     //var slug = body.msg.slug;
     //var token = body.msg.unique_token;
-    request1(url, function (error, response, body) {
+    request(url, function (error, response, body) {
         if (!error) {
             console.log(body);
         }
