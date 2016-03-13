@@ -15,18 +15,17 @@ app.use(bodyParser.json());
 
 var request = require('request');
 var url ='http://requestb.in/qjjf5gqj'
-request(url, function (error, response, body) {
-  if (!error) {
-    console.log(body);
-  }
-});
 
 app.post('/', function (req, res) {
     var body = req.body;
     //var trackingNumber = body.msg.tracking_number;
     //var slug = body.msg.slug;
     //var token = body.msg.unique_token;
-    request();
+    request(url, function (error, response, body) {
+        if (!error) {
+            console.log(body);
+        }
+    });
     console.log(req);
     console.log(body);
     console.log(body.text);
