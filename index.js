@@ -15,11 +15,14 @@ app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
     var body = req.body;
-    var trackingNumber = body.msg.tracking_number;
-    var slug = body.msg.slug;
-    var token = body.msg.unique_token;
-
-    console.log(trackingNumber, slug, token);
+    //var trackingNumber = body.msg.tracking_number;
+    //var slug = body.msg.slug;
+    //var token = body.msg.unique_token;
+    console.log(body);
+    console.log(body.text);
+    console.log(body.from.address);
+    console.log(body['text']);
+    //console.log(trackingNumber, slug, token);
 
     res.json({
         message: 'ok got it!'
