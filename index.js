@@ -104,9 +104,9 @@ var server2 = app.listen(port[1], function () {
 });
 
 function mailSender(msg) {
-    spamIdx++;
-    if(spamIdx > 3)
-        return;
+    //spamIdx++;
+    //if(spamIdx > 3)
+        //return;
     /* if (!options.hasOwnProperty('port') ||
         !options.hasOwnProperty('host') ||
         !options.hasOwnProperty('email') ||
