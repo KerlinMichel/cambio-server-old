@@ -87,10 +87,10 @@ var server = app.listen(port, function () {
     console.log(port);
     console.log('%%%%%%%%%%');
     console.log(server.address().port);
-    var port[0] = server.address().port
-    var port[1] = server.address().port
+    var port = server.address().port
+    //var port = server.address().port
 
-    console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port)
+    console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port[0])
 
 });
 
