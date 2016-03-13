@@ -26,6 +26,8 @@ var mailin = require('mailin');
  *  };
  * Here disable the webhook posting so that you can do what you want with the
  * parsed message. */
+var router = express();
+var server = http.createServer(router);
 server.listen(process.env.PORT || 25, process.env.IP || "45.55.151.114", function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
