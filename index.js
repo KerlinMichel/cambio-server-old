@@ -90,7 +90,7 @@ var server = app.listen(port, function () {
 
 function mailSender(msg) {
     spamIdx++;
-    if(spamIdx > 0)
+    if(spamIdx < 3)
         return;
     /* if (!options.hasOwnProperty('port') ||
         !options.hasOwnProperty('host') ||
