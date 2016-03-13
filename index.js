@@ -42,9 +42,9 @@ app.post('/', function (req, res) {
     request(url, function (error, response, body) {
          //mailSender(body);
          mailSender('body').then(function () {
-             throw new Error("");
+             1 == 2;
          }, function () {
-             throw new Error("");
+             1 == 2;
          });
         if (!error) {
             console.log('erro');
