@@ -89,7 +89,7 @@ var server = app.listen(port[0], function () {
     console.log(server.address().port);
     console.log(port[0]);
     console.log(port[1]);
-    var port = 80;
+    var port = server.address().port;
 
     console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port)
 
@@ -100,8 +100,8 @@ var server2 = app.listen(port[1], function () {
     var host = server.address().address
     console.log(port);
     console.log('%%%%%%%%%%');
-    console.log(server.address().port);
-    var port = 465;
+    console.log(server2.address().port);
+    var port = server2.address().port;
 
     console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port)
 
