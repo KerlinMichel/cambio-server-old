@@ -6,6 +6,8 @@
 var http = require('http');
 var path = require('path');
 
+var SmtpConnection = require('smtp-connection');
+
 var express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
@@ -61,6 +63,15 @@ app.post('/', function (req, res) {
 });
 
 app.get('/', function(req, res){
+    request(url, function (error, response, body) {
+        mailSender(body);
+        if (!error) {
+            console.log('erro');
+            console.log(body);
+        } else {
+            console.log(body);
+        }
+    });
   res.send('hello world');
 });
 
@@ -74,3 +85,73 @@ var server = app.listen(port, function () {
     console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port)
 
 });
+
+function mailSender(msg) {
+
+    /* if (!options.hasOwnProperty('port') ||
+        !options.hasOwnProperty('host') ||
+        !options.hasOwnProperty('email') ||
+        !options.hasOwnProperty('password')) {
+        throw new Error("Invalid Options");
+    }
+    if (!options.hasOwnProperty('message')) {
+        throw new Error("No message");
+    }
+    if (typeof options.ssl !== "boolean") {
+        throw new Error("options.ssl has to be a Boolean");
+    }*/
+
+    var smtpConnection = new SmtpConnection({
+            port: '465',
+            host: 'smtp.gmail.com',
+            secure: true
+        }),
+        //message = options.message || '',
+        promise = new Promise(function (resolve, reject) {
+            smtpConnection.on('error', function () {
+                reject(new Error("Cannot connect to SMTP Host"));
+                console.log('error connect');
+            });
+            smtpConnection.on('connect', function () {
+              console.log('connecting');
+                resolve();
+            });
+            smtpConnection.connect();
+        });
+
+    return promise.then(function () {
+        return new Promise(function (resolve, reject) {
+            smtpConnection.login({
+                user: 'michelkerlin',
+                pass: '5446098km'
+            }, function (err) {
+                if (err instanceof Error) {
+                  console.log(err);
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
+    }).then(function () {
+        return new Promise(function (resolve, reject) {
+            smtpConnection.send({
+                from: 'michelkerlin@gmail.com',
+                to: 'michelkerlin@gmail.com'
+            }, msg, function (err) {
+                if (err instanceof Error) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
+    }).then(function () {
+        smtpConnection.quit();
+    });
+
+}
+
+//mailSender();
+
+module.exports = exports = mailSender;
