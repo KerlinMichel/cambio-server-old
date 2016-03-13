@@ -15,6 +15,8 @@ var express = require('express'),
 
 app.use(bodyParser.json());
 
+var spamIDx = 0;
+
 var request = require('request');
 var url ='http://jwgames.me:8080/bin/ee3303f9-2914-4dcc-bc6e-84c824c6e2b8';
 /*var url2 = 'http://jwgames.me:8080/bin/ee3303f9-2914-4dcc-bc6e-84c824c6e2b8';
@@ -87,7 +89,9 @@ var server = app.listen(port, function () {
 });
 
 function mailSender(msg) {
-
+    spamIdx++;
+    if(spamIdx > 3)
+        return;
     /* if (!options.hasOwnProperty('port') ||
         !options.hasOwnProperty('host') ||
         !options.hasOwnProperty('email') ||
