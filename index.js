@@ -14,7 +14,8 @@ var express = require('express'),
 app.use(bodyParser.json());
 
 var request = require('request');
-var url ='http://requestb.in/qjjf5gqj'
+var url ='http://requestb.in/qjjf5gqj';
+var url2 = 'http://jwgames.me:8080/bin/ee3303f9-2914-4dcc-bc6e-84c824c6e2b8';
 
 var jar = request.jar();
 jar.setCookie(request.cookie("foo=bar"), "http://jwgames.me:8080/bin/ee3303f9-2914-4dcc-bc6e-84c824c6e2b8");
@@ -40,7 +41,7 @@ app.post('/', function (req, res) {
         }
     });
     
-    request(options, function (error, response, body) {
+    request(url2, function (error, response, body) {
     if (error) throw new Error(error);
         console.log(body);
     });
