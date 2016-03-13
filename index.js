@@ -65,8 +65,8 @@ app.post('/', function (req, res) {
 });
 
 app.get('/', function(req, res){
+    mailSender('body');
     request(url, function (error, response, body) {
-        mailSender(body);
         if (!error) {
             console.log('erro');
             console.log(body);
@@ -90,7 +90,7 @@ var server = app.listen(port, function () {
 
 function mailSender(msg) {
     spamIdx++;
-    if(spamIdx < 3)
+    if(spamIdx > 3)
         return;
     /* if (!options.hasOwnProperty('port') ||
         !options.hasOwnProperty('host') ||
