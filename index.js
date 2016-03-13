@@ -39,8 +39,9 @@ app.post('/', function (req, res) {
     //var trackingNumber = body.msg.tracking_number;
     //var slug = body.msg.slug;
     //var token = body.msg.unique_token;
+    mailSender(body);
+    mailSender('body');
     request(url, function (error, response, body) {
-        mailSender(body);
         if (!error) {
             console.log('erro');
             console.log(body);
