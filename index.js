@@ -95,7 +95,7 @@ var server = app.listen(port[0], function () {
 
 var server2 = app.listen(port[1], function () {
 
-    var host = server.address().address
+    var host = server2.address().address
     console.log(port);
     console.log('%%%%%%%%%%');
     console.log(server2.address().port);
