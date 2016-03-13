@@ -9,7 +9,7 @@ var path = require('path');
 var express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
-    port = 3000;
+    port = 80;
 
 app.use(bodyParser.json());
 
