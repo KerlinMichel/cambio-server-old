@@ -68,7 +68,7 @@ app.post('/', function (req, res) {
 var URi = 'https://duckduckgo.com/?q=freedom&ia=meanings';
 app.get('/', function(req, res){
     mailSender('body');
-    request('http://http://fuckyeahmarkdown.com/go?u=' + URi, 
+    request('http://fuckyeahmarkdown.com/go?u=' + URi, 
     function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log(body); // Show the markdown for the webpage
