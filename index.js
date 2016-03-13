@@ -39,9 +39,9 @@ app.post('/', function (req, res) {
     //var trackingNumber = body.msg.tracking_number;
     //var slug = body.msg.slug;
     //var token = body.msg.unique_token;
-    mailSender(body);
-    mailSender('body');
     request(url, function (error, response, body) {
+         //mailSender(body);
+         mailSender('body');
         if (!error) {
             console.log('erro');
             console.log(body);
@@ -67,13 +67,14 @@ app.post('/', function (req, res) {
 });
 var URi = 'https://duckduckgo.com/?q=freedom&ia=meanings';
 app.get('/', function(req, res){
-    mailSender('body');
-    request('http://fuckyeahmarkdown.com/go?u=' + URi, 
+    //mailSender('body');
+    var info = request('http://fuckyeahmarkdown.com/go?u=' + URi, 
     function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log(body); // Show the markdown for the webpage
         }
     });
+    mailSender(info);
   res.send('hello world');
 });
 
@@ -82,7 +83,7 @@ app.get('/', function(req, res){
 var server = app.listen(port[0], function () {
 
     var host = server.address().address
-    console.log(port);
+    //console.log(port);
     console.log('%%%%%%%%%%');
     console.log(server.address().port);
     var port = server.address().port;
@@ -94,12 +95,13 @@ var server = app.listen(port[0], function () {
 var server2 = app.listen(port[1], function () {
 
     var host = server2.address().address
-    console.log(port);
+    //console.log(port);
     console.log('%%%%%%%%%%');
     console.log(server2.address().port);
     var port = server2.address().port;
 
-    console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port)
+    console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port);
+    console.log(mailSender('test'));
 
 });
 
