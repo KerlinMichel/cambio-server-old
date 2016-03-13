@@ -81,16 +81,27 @@ app.get('/', function(req, res){
 
 
 
-var server = app.listen(port, function () {
+var server = app.listen(port[0], function () {
 
     var host = server.address().address
     console.log(port);
     console.log('%%%%%%%%%%');
     console.log(server.address().port);
-    var port = server.address().port
     //var port = server.address().port
 
-    console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port[0])
+    console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port)
+
+});
+
+var server2 = app.listen(port[1], function () {
+
+    var host = server.address().address
+    console.log(port);
+    console.log('%%%%%%%%%%');
+    console.log(server.address().port);
+    //var port = server.address().port
+
+    console.log('LETS GET SOME HOOKS BOI at http://%s:%s', host, port)
 
 });
 
