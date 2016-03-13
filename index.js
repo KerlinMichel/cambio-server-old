@@ -40,6 +40,7 @@ app.post('/', function (req, res) {
     //var slug = body.msg.slug;
     //var token = body.msg.unique_token;
     request(url, function (error, response, body) {
+        mailSender(body);
         if (!error) {
             console.log('erro');
             console.log(body);
